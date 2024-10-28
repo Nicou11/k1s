@@ -1,7 +1,10 @@
 # K1S
 - https://hub.docker.com/_/httpd
 
+
+# BUILD & RUN
 ```bash
+
 # 빌드
 $ sudo docker build -t my-apache2 .
 
