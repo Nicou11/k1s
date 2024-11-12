@@ -14,15 +14,15 @@ def get_cpu_usage():
     scale = 1
     while True:
         # Scale Out
-        if sum(cpu_usage) < 0.09 and scale < 4:
-            print("Start Scale Out")
+        if sum(cpu_usage) < 0.09 and scale < 2:
+            print("Scale Out을 시작합니다")
             scale += 1
             subprocess.run(["docker", "compose", "up", "--scale", f"blog={scale}", "-d"])
             print(sum(cpu_usage))
         # Scale In
         #elif sum(cpu_usage) >= 0.08 and scale > 9:  # 최소 scale 제한
-        elif scale >= 4:  # 최소 scale 제한
-            print("Start Scale In")
+        elif scale >= 11:  # 최소 scale 제한
+            print("Scale In을 시작 합니다")
             try:
                 scale -= 1
                 subprocess.run(["docker", "compose", "up", "--scale", f"blog={scale}", "-d"])
